@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "27DF1647-90CA-46B6-8B01-5185C87F0FD0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7DCBB7A2-B76B-4461-8BF8-D3CE8EC71137"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPet/PageLoadingService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getDogBreeds(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "086D2BF0-D226-45D5-A506-506E69368ADE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPet/PageLoadingService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getDogBreeds(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "118F0465-93F5-48E3-9EDA-2E180E50CF20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPet/Modules/Networking/Sources/Networking/APIs/DogBreedsAPI.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getDogBreedList(attachBreed:page:limit:apiResponseQueue:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "118F0465-93F5-48E3-9EDA-2E180E50CF20 - 87d1d6da34ee9622"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Networking.Response&lt;Swift.Array&lt;Networking.DogBreed&gt;&gt;, Swift.Error&gt;) -&gt; () in static Networking.DogBreedsAPI.getDogBreedList(attachBreed: Swift.Optional&lt;Swift.Int&gt;, page: Swift.Optional&lt;Swift.Int&gt;, limit: Swift.Optional&lt;Swift.Int&gt;, apiResponseQueue: __C.OS_dispatch_queue, completion: (Swift.Optional&lt;Swift.Array&lt;Networking.DogBreed&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iPet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/annazelinskya/Downloads/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/iPet/iPet/Modules/Networking/Sources/Networking/APIs/DogBreedsAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "177">
+               </Location>
+               <Location
+                  uuid = "118F0465-93F5-48E3-9EDA-2E180E50CF20 - 87d1d6da34ee9622"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Networking.Response&lt;Swift.Array&lt;Networking.DogBreed&gt;&gt;, Swift.Error&gt;) -&gt; () in static Networking.DogBreedsAPI.getDogBreedList(attachBreed: Swift.Optional&lt;Swift.Int&gt;, page: Swift.Optional&lt;Swift.Int&gt;, limit: Swift.Optional&lt;Swift.Int&gt;, apiResponseQueue: __C.OS_dispatch_queue, completion: (Swift.Optional&lt;Swift.Array&lt;Networking.DogBreed&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "iPet"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/annazelinskya/Downloads/%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82/iPet/iPet/Modules/Networking/Sources/Networking/APIs/DogBreedsAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

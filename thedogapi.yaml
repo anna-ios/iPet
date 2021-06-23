@@ -1,0 +1,136 @@
+openapi: 3.0.3
+info:
+  title: TheDogApi
+  description: "The Dog Api"
+  version: 0.0.1
+servers:
+- url: https://api.thedogapi.com/v1
+tags:
+  - name: DogBreeds
+    description: Dog Breeds
+paths:
+  /breeds:
+    get:
+      summary: Returns a list of dog breeds
+      tags:
+        - DogBreeds
+      operationId: getDogBreedList
+      parameters:
+        - in: query
+          name: attach_breed
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        200:
+          $ref: '#/components/responses/200'
+        default:
+          $ref: '#/components/responses/default'
+  /breeds/search:
+    get:
+      summary: Array of Breeds which match the q query parameter passed
+      tags:
+        - DogBreeds
+      operationId: getDogBreedSearchList
+      parameters:
+        - in: query
+          name: q
+          required: false
+          example: labrador
+          schema:
+            type: string
+      responses:
+        200:
+          $ref: '#/components/responses/200'
+        default:
+          $ref: '#/components/responses/default'
+components:
+  responses:
+    200:
+      description: OK
+      headers:
+        Pagination-Count:
+          schema:
+            type: integer
+        Pagination-Page:
+          schema:
+            type: integer
+        Pagination-Limit:
+          schema:
+            type: integer
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DogBreedList'
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorModel'
+  schemas:
+    DogBreedList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DogBreed'
+    DogBreed:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        temperament:
+          type: string
+        life_span:
+          type: string
+        alt_names:
+          type: string
+        wikipedia_url:
+          type: string
+        origin:
+          type: string
+        weight:
+          $ref: '#/components/schemas/Dimensions'
+        country_code:
+          type: string
+        cfa_url:
+          type: string
+        vetstreet_url:
+          type: string
+        vcahospitals_url:
+          type: string
+        height:
+          $ref: '#/components/schemas/Dimensions'
+    Dimensions:
+      type: object
+      properties:
+        imperial:
+          type: string
+        metric:
+          type: string
+    ErrorModel:
+      type: object
+      required:
+        - message
+        - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
+

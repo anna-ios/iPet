@@ -1,0 +1,172 @@
+openapi: 3.0.3
+info:
+  title: TheCatApi
+  description: "The Cat Api"
+  version: 1.0.0
+servers:
+- url: https://api.thecatapi.com/v1
+tags:
+  - name: CatBreeds
+    description: Cat Breeds
+paths:
+  /breeds:
+    get:
+      summary: Returns a list of cat breeds
+      tags:
+        - CatBreeds
+      operationId: getCatBreedList
+      parameters:
+        - in: query
+          name: attach_breed
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          headers:
+            Pagination-Count:
+              schema:
+                type: integer
+            Pagination-Page:
+              schema:
+                type: integer
+            Pagination-Limit:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatBreedList'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+components:
+  schemas:
+    CatBreedList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CatBreed'
+    CatBreed:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        weight:
+          type: object
+          properties:
+            imperial:
+              type: string
+            metric:
+              type: string
+        id:
+          type: string
+        name:
+          type: string
+        cfa_url:
+          type: string
+        vetstreet_url:
+          type: string
+        vcahospitals_url:
+          type: string
+        temperament:
+          type: string
+        origin:
+          type: string
+        country_codes:
+          type: string
+        country_code:
+          type: string
+        description:
+          type: string
+        life_span:
+          type: string
+        indoor:
+          type: number
+        lap:
+          type: number
+        alt_names:
+          type: string
+        adaptability:
+          type: number
+        affection_level:
+          type: number
+        child_friendly:
+          type: number
+        dog_friendly:
+          type: number
+        energy_level:
+          type: number
+        grooming:
+          type: number
+        health_issues:
+          type: number
+        intelligence:
+          type: number
+        shedding_level:
+          type: number
+        social_needs:
+          type: number
+        stranger_friendly:
+          type: number
+        vocalisation:
+          type: number
+        experimental:
+          type: number
+        hairless:
+          type: number
+        natural:
+          type: number
+        rare:
+          type: number
+        rex:
+          type: number
+        suppressed_tail:
+          type: number
+        short_legs:
+          type: number
+        wikipedia_url:
+          type: string
+        hypoallergenic:
+          type: number
+        reference_image_id:
+          type: string
+        image:
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              type: string
+            width:
+              type: number
+            height:
+              type: number
+            url:
+              type: string
+    ErrorModel:
+      type: object
+      required:
+        - message
+        - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
+
