@@ -23,6 +23,7 @@ struct EditPetView : View {
     @State private var segments = ["Cat", "Dog"]
     @State private var kind: String = ""
     @State private var image: UIImage?
+    @State private var showingAlert = false
     
     private var selectedKind: Binding<String> {
         Binding<String>(
@@ -49,13 +50,11 @@ struct EditPetView : View {
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    WelcomeText()
-                }
-                Section {
+                Section(header: HeaderView()) {
                     PetImageView(inputImage: $image)
                         .frame(height: 150, alignment: .center)
                 }
+                .textCase(nil)
                 Section {
                     TextField("Pet name", text: $name)
                 }
@@ -79,6 +78,11 @@ struct EditPetView : View {
                     HStack {
                         Spacer()
                         Button {
+                            guard !name.isEmpty, !kind.isEmpty, !breed.isEmpty else {
+                                showingAlert = true
+                                return
+                            }
+
                             addItem()
                             close()
                             withAnimation {
@@ -92,25 +96,31 @@ struct EditPetView : View {
                                 .background(Color.blue)
                                 .cornerRadius(15.0)
                         }
+                        .alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Some fields are empty"),
+                                  message: Text("Please enter all pet's data"),
+                                  dismissButton: .default(Text("Ok")))
+                        }
                         .buttonStyle(PlainButtonStyle())
                         Spacer()
                     }
                 }
+            }
+            .onAppear() {
+                petViewModel.loadBreeds()
+                petViewModel.kind = getPetKind(kind)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         close()
                     }) {
-                        Text(router.currentPage != .first ? "Cancel" : "")
+                        Text("Cancel")
                     }
                 }
             }
             .navigationBarTitle("", displayMode: .inline)
-        }
-        .onAppear() {
-            petViewModel.loadBreeds()
-            petViewModel.kind = getPetKind(kind)
+            .navigationBarHidden(router.currentPage == .first ? true : false)
         }
     }
     
@@ -137,12 +147,13 @@ struct EditPetView : View {
     }
 }
 
-struct WelcomeText : View {
+struct HeaderView : View {
     var body: some View {
         return Text("Your pet's data")
             .font(.largeTitle)
             .fontWeight(.semibold)
-            .padding(.bottom, 20)
+            .foregroundColor(Color.black)
+            .padding()
     }
 }
 

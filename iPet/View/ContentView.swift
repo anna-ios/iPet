@@ -20,6 +20,7 @@ struct ContentView: View {
         VStack {
             if router.currentPage == .first {
                 EditPetView(pet: Pet())
+                    .navigationBarHidden(true)
                     .environmentObject(self.petViewModel)
                     .environmentObject(self.router)
             } else if router.currentPage == .home {
